@@ -115,9 +115,9 @@ class EventHandler:
 
     def message(self, e):
         if (e["type"] in ("chat", "normal")):
-            logging.debug(e["body"])
             c = command.CreateCommand(e["from"], e["body"])
-            c.execute()
+            if (c != None):
+                c.execute(self.client)
 
     def message_form(self, e):
         logging.debug("TODO: message_form")
@@ -178,6 +178,7 @@ class EventHandler:
     def session_start(self, e):
         self.client.send_presence()
         self.client.get_roster()
+        self.client.usermanager.update(self.client)
 
     def socket_error(self, e):
         logging.debug("TODO: socket_error")
