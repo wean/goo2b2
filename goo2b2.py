@@ -52,7 +52,8 @@ if (__name__ == "__main__"):
         try:
             c.process(block=True)
         except KeyboardInterrupt:
-            c.disconnect(wait=True)
+            c.disconnect()
             print("Disconnected. ")
+            sys.exit(0)
     else:
         print("Unable to Connect.")
