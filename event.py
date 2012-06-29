@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import command
 
 class EventHandler:
 
@@ -21,148 +22,170 @@ class EventHandler:
         logging.debug(e)
 
     def changed_subscription(self, e):
-        print("TODO: changed_subscription")
-        print(e)
+        logging.debug("TODO: changed_subscription")
+        logging.debug(e)
 
     def chatstate_active(self, e):
-        print("TODO: chatstate_active")
-        print(e)
+        logging.debug("TODO: chatstate_active")
+        logging.debug(e)
 
     def chatstate_composing(self, e):
-        print("TODO: chatstate_composing")
-        print(e)
+        logging.debug("TODO: chatstate_composing")
+        logging.debug(e)
 
     def chatstate_gone(self, e):
-        print("TODO: chatstate_gone")
-        print(e)
+        logging.debug("TODO: chatstate_gone")
+        logging.debug(e)
 
     def chatstate_inactive(self, e):
-        print("TODO: chatstate_inactive")
-        print(e)
+        logging.debug("TODO: chatstate_inactive")
+        logging.debug(e)
 
     def chatstate_paused(self, e):
-        print("TODO: chatstate_paused")
-        print(e)
+        logging.debug("TODO: chatstate_paused")
+        logging.debug(e)
 
     def connected(self, e):
-        print("TODO: connected")
-        print(e)
+        logging.debug("TODO: connected")
+        logging.debug(e)
 
     def disco_info(self, e):
-        print("TODO: disco_info")
-        print(e)
+        logging.debug("TODO: disco_info")
+        logging.debug(e)
 
     def disco_items(self, e):
-        print("TODO: disco_items")
-        print(e)
+        logging.debug("TODO: disco_items")
+        logging.debug(e)
 
     def disconnected(self, e):
-        print("TODO: disconnected")
-        print(e)
+        logging.debug("TODO: disconnected")
+        logging.debug(e)
 
     def entity_time(self, e):
-        print("TODO: entity_time")
-        print(e)
+        logging.debug("TODO: entity_time")
+        logging.debug(e)
 
     def failed_auth(self, e):
-        print("TODO: failed_auth")
-        print(e)
+        logging.debug("TODO: failed_auth")
+        logging.debug(e)
 
     def gmail_messages(self, e):
-        print("TODO: gmail_messages")
-        print(e)
+        logging.debug("TODO: gmail_messages")
+        logging.debug(e)
 
     def gmail_notify(self, e):
-        print("TODO: gmail_notify")
-        print(e)
+        logging.debug("TODO: gmail_notify")
+        logging.debug(e)
 
     def got_offline(self, e):
-        print("TODO: got_offline")
-        print(e)
+        logging.debug("TODO: got_offline")
+        logging.debug(e)
 
     def got_online(self, e):
-        print("TODO: got_online")
-        print(e)
+        logging.debug("TODO: got_online")
+        logging.debug(e)
 
     def groupchat_direct_invite(self, e):
-        print("TODO: groupchat_direct_invite")
-        print(e)
+        logging.debug("TODO: groupchat_direct_invite")
+        logging.debug(e)
 
     def groupchat_invite(self, e):
-        print("TODO: groupchat_invite")
-        print(e)
+        logging.debug("TODO: groupchat_invite")
+        logging.debug(e)
 
     def groupchat_message(self, e):
-        print("TODO: groupchat_message")
+        logging.debug("TODO: groupchat_message")
+        logging.debug(e)
 
     def groupchat_presence(self, e):
-        print("TODO: groupchat_presence")
+        logging.debug("TODO: groupchat_presence")
+        logging.debug(e)
 
     def groupchat_subject(self, e):
-        print("TODO: groupchat_subject")
+        logging.debug("TODO: groupchat_subject")
+        logging.debug(e)
 
     def killed(self, e):
-        print("TODO: killed")
+        logging.debug("TODO: killed")
+        logging.debug(e)
 
     def last_activity(self, e):
-        print("TODO: last_activity")
+        logging.debug("TODO: last_activity")
+        logging.debug(e)
 
     def message(self, e):
-        logging.debug(e["type"])
         if (e["type"] in ("chat", "normal")):
             logging.debug(e["body"])
+            c = command.CreateCommand(e["from"], e["body"])
+            c.execute()
 
     def message_form(self, e):
-        print("TODO: message_form")
+        logging.debug("TODO: message_form")
+        logging.debug(e)
 
     def message_xform(self, e):
-        print("TODO: message_xform")
+        logging.debug("TODO: message_xform")
+        logging.debug(e)
 
     def presence_available(self, e):
-        print("TODO: presence_available")
+        logging.debug("TODO: presence_available")
+        logging.debug(e)
 
     def presence_error(self, e):
-        print("TODO: presence_error")
+        logging.debug("TODO: presence_error")
+        logging.debug(e)
 
     def presence_form(self, e):
-        print("TODO: presence_form")
+        logging.debug("TODO: presence_form")
+        logging.debug(e)
 
     def presence_probe(self, e):
-        print("TODO: presence_probe")
+        logging.debug("TODO: presence_probe")
+        logging.debug(e)
 
     def presence_subscribe(self, e):
-        print("TODO: presence_subscribe")
+        logging.debug("TODO: presence_subscribe")
+        logging.debug(e)
 
     def presence_subscribed(self, e):
-        print("TODO: presence_subscribed")
+        logging.debug("TODO: presence_subscribed")
+        logging.debug(e)
 
     def presence_unavailable(self, e):
-        print("TODO: presence_unavailable")
+        logging.debug("TODO: presence_unavailable")
+        logging.debug(e)
 
     def presence_unsubscribe(self, e):
-        print("TODO: presence_unsubscribe")
+        logging.debug("TODO: presence_unsubscribe")
+        logging.debug(e)
 
     def presence_unsubscribed(self, e):
-        print("TODO: presence_unsubscribed")
+        logging.debug("TODO: presence_unsubscribed")
+        logging.debug(e)
 
     def roster_update(self, e):
-        print("TODO: roster_update")
+        logging.debug("TODO: roster_update")
+        logging.debug(e)
 
     def sent_presence(self, e):
-        print("TODO: sent_presence")
+        logging.debug("TODO: sent_presence")
+        logging.debug(e)
 
     def session_end(self, e):
-        print("TODO: session_end")
+        logging.debug("TODO: session_end")
+        logging.debug(e)
 
     def session_start(self, e):
         self.client.send_presence()
         self.client.get_roster()
 
     def socket_error(self, e):
-        print("TODO: socket_error")
+        logging.debug("TODO: socket_error")
+        logging.debug(e)
 
     def stream_error(self, e):
-        print("TODO: stream_error")
+        logging.debug("TODO: stream_error")
+        logging.debug(e)
 
 
 if (__name__ == "__main__"):
