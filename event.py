@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-class Event:
+class EventHandler:
 
     def __init__(self, client):
         self.client = client
@@ -14,130 +14,131 @@ class Event:
             if (self.client):
                 self.client.add_event_handler(name, event)
 
-    def changed_status(self, event):
+    def changed_status(self, e):
         pass
 
-    def changed_subscription(self, event):
+    def changed_subscription(self, e):
         pass
 
-    def chatstate_active(self, event):
+    def chatstate_active(self, e):
         pass
 
-    def chatstate_composing(self, event):
+    def chatstate_composing(self, e):
         pass
 
-    def chatstate_gone(self, event):
+    def chatstate_gone(self, e):
         pass
 
-    def chatstate_inactive(self, event):
+    def chatstate_inactive(self, e):
         pass
 
-    def chatstate_paused(self, event):
+    def chatstate_paused(self, e):
         pass
 
-    def connected(self, event):
+    def connected(self, e):
         pass
 
-    def disco_info(self, event):
+    def disco_info(self, e):
         pass
 
-    def disco_items(self, event):
+    def disco_items(self, e):
         pass
 
-    def disconnected(self, event):
+    def disconnected(self, e):
         pass
 
-    def entity_time(self, event):
+    def entity_time(self, e):
         pass
 
-    def failed_auth(self, event):
+    def failed_auth(self, e):
         pass
 
-    def gmail_messages(self, event):
+    def gmail_messages(self, e):
         pass
 
-    def gmail_notify(self, event):
+    def gmail_notify(self, e):
         pass
 
-    def got_offline(self, event):
+    def got_offline(self, e):
         pass
 
-    def got_online(self, event):
+    def got_online(self, e):
         pass
 
-    def groupchat_direct_invite(self, event):
+    def groupchat_direct_invite(self, e):
         pass
 
-    def groupchat_invite(self, event):
+    def groupchat_invite(self, e):
         pass
 
-    def groupchat_message(self, event):
+    def groupchat_message(self, e):
         pass
 
-    def groupchat_presence(self, event):
+    def groupchat_presence(self, e):
         pass
 
-    def groupchat_subject(self, event):
+    def groupchat_subject(self, e):
         pass
 
-    def killed(self, event):
+    def killed(self, e):
         pass
 
-    def last_activity(self, event):
+    def last_activity(self, e):
         pass
 
-    def message(self, event):
+    def message(self, e):
+        print(e)
+
+    def message_form(self, e):
         pass
 
-    def message_form(self, event):
+    def message_xform(self, e):
         pass
 
-    def message_xform(self, event):
+    def presence_available(self, e):
         pass
 
-    def presence_available(self, event):
+    def presence_error(self, e):
         pass
 
-    def presence_error(self, event):
+    def presence_form(self, e):
         pass
 
-    def presence_form(self, event):
+    def presence_probe(self, e):
         pass
 
-    def presence_probe(self, event):
+    def presence_subscribe(self, e):
         pass
 
-    def presence_subscribe(self, event):
+    def presence_subscribed(self, e):
         pass
 
-    def presence_subscribed(self, event):
+    def presence_unavailable(self, e):
         pass
 
-    def presence_unavailable(self, event):
+    def presence_unsubscribe(self, e):
         pass
 
-    def presence_unsubscribe(self, event):
+    def presence_unsubscribed(self, e):
         pass
 
-    def presence_unsubscribed(self, event):
+    def roster_update(self, e):
         pass
 
-    def roster_update(self, event):
+    def sent_presence(self, e):
         pass
 
-    def sent_presence(self, event):
+    def session_end(self, e):
         pass
 
-    def session_end(self, event):
+    def session_start(self, e):
+        self.client.send_presence()
+        self.client.get_roster()
+
+    def socket_error(self, e):
         pass
 
-    def session_start(self, event):
-        pass
-
-    def socket_error(self, event):
-        pass
-
-    def stream_error(self, event):
+    def stream_error(self, e):
         pass
 
 
