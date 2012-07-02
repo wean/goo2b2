@@ -48,4 +48,5 @@ class UserManager:
         if (newid == None):
             return None
         client.update_roster(newid, subscription="both", groups=["sub"])
+        client.send_presence(pto=newid, ptype='subscribe')
         return True
