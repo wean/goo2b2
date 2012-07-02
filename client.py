@@ -27,6 +27,11 @@ class Client(sleekxmpp.ClientXMPP):
         for toj in self.usermanager.getUserJids(self):
             if (toj == jid):
                 continue
-            self.send_message(mto=toj,
-                    mbody="[" + name + "]" + message,
-                    mtype="chat")
+            self.sendTo(toj, "[" + name + "]" + message)
+
+    def sendTo(self, jid, message):
+        if (isinstance(jid, JID)):
+            jid = jid.user + "@" + jid.domain
+        self.send_message(mto=jid.strip(),
+                mbody=message,
+                mtype="chat")

@@ -12,17 +12,7 @@ class UserManager:
     def update(self, client):
         if (client == None):
             return
-        groups = client.client_roster.groups()
-        needUpdate = False
-        for group in groups:
-            if (group not in ("sub", "block", "none")):
-                for jid in groups[group]:
-                    client.update_roster(jid, client.client_roster[jid]["name"], None, ["none"])
-                    logging.debug("Move %s to none", jid)
-                    needUpdate = True
-        if (needUpdate):
-            client.get_roster()
-            self.update(client)
+
     def getUserJids(self, client):
         if (client == None):
             return
@@ -40,5 +30,22 @@ class UserManager:
         groups = client.client_roster.groups()
         if (jid not in groups["sub"]):
             return False
-        client.update_roster(jid, nick, "sub")
+        client.update_roster(jid, name=nick, subscription="both", groups=["sub"])
+        return True
+
+    def ban(self, client, jid, banid):
+        if (client == None):
+            return None
+        if (banid == None):
+            return None
+        groups = client.client_roster.groups()
+        client.update_roster(banid, subscription="both", groups=["block"])
+        return True
+
+    def add(self, client, jid, newid):
+        if (client == None):
+            return None
+        if (newid == None):
+            return None
+        client.update_roster(newid, subscription="both", groups=["sub"])
         return True

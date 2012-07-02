@@ -7,6 +7,4 @@ class CommandHelp(command.BaseCommand):
 
     def execute(self, client=None, db=None):
         if (client != None):
-            client.send_message(mto=self.fjid, 
-                    mbody=self.message,
-                    mtype="chat")
+            client.sendTo(self.fjid, self.message)

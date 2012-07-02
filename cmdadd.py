@@ -5,15 +5,15 @@ import command
 import logging
 import utils
 
-class CommandNick(command.BaseCommand):
+class CommandAdd(command.BaseCommand):
 
     def execute(self, client=None, db=None):
         if (client != None):
             params = utils.getCommandParams(self.message)
             if (len(params) >= 2):
-                nick = params[1]
+                new = params[1]
             else:
                 return
-            logging.debug(nick)
-            if (client.usermanager.changeName(client, self.fjid, nick)):
+            logging.debug(new)
+            if (client.usermanager.add(client, self.fjid, new)):
                 pass
