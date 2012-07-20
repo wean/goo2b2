@@ -6,6 +6,7 @@ import getpass
 from client import Client
 from optparse import OptionParser
 import logging
+import command
 
 if sys.version_info < (3, 0):
     reload(sys)
@@ -45,6 +46,8 @@ if (__name__ == "__main__"):
         opts.jid = raw_input("Username: ")
     if opts.password is None:
         opts.password = getpass.getpass("Password: ")
+
+    command.LoadCommand()
 
     c = Client(opts.jid, opts.password)
 
