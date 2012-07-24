@@ -6,6 +6,9 @@ import utils
 import logging
 
 class CommandList(command.BaseCommand):
+    """
+        list 列出人员
+    """
 
     def execute(self, client=None, db=None):
         if (client == None):
