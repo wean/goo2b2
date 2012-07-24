@@ -24,6 +24,7 @@ def LoadCommand():
     """
         预加载Command
     """
+    logging.debug("Start Load Command")
     cmdPath = sys.path[0]
     if (os.path.isdir(cmdPath)):
         fileList = os.listdir(cmdPath)
@@ -38,6 +39,7 @@ def LoadCommand():
                 if (m == None):
                     continue
                 CommandName = "Command" + cmdName[:1].upper() + cmdName[1:]
+                logging.debug("Load Command " + CommandName)
                 if (CommandName not in dir(m)):
                     logging.debug(CommandName + " Command File Syntax Error !")
                     continue
@@ -48,6 +50,7 @@ def LoadCommand():
                     logging.debug(CommandName + " Command Is Not Callable !")
                     continue
                 GooCommands[cmdName] = cls
+    logging.debug("Load Command OK!")
 
 def CreateCommand(jid, message):
     """
