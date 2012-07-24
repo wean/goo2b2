@@ -24,9 +24,10 @@ class CommandList(command.BaseCommand):
         msg = "\n=    User List\n"
         for jid in groups:
             name = client.client_roster[jid]["name"]
-            gs = client.client_roster[jid]["groups"]
-            logging.debug(gs)
+            rc = client.client_roster[jid].resources
             if (name == ""):
                 name = jid
             msg += "=    %s %s\n" % (name, jid)
+            for rcItem in rc:
+                msg += "     %s %s %s\n" % (rcItem, rc[rcItem]["status"], rc[rcItem]["show"])
         client.sendTo(self.fjid, msg)
