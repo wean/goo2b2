@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from sleekxmpp.xmlstream.jid import JID
+from sleekxmpp.jid import JID
 
 class UserManager:
 
