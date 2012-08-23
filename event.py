@@ -197,5 +197,4 @@ class EventHandler:
         logging.debug(e)
 
 if (__name__ == "__main__"):
-    e = Event(None)
-
+    pass
