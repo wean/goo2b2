@@ -196,14 +196,6 @@ class EventHandler:
         logging.debug("TODO: ibb_stream_data")
         logging.debug(e)
 
-    def disco_info(self, e):
-        logging.debug("TODO: disco_info")
-        logging.debug(e)
-
-    def disco_items(self, e):
-        logging.debug("TODO: disco_items")
-        logging.debug(e)
-
 if (__name__ == "__main__"):
     e = Event(None)
 
